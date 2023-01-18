@@ -68,7 +68,7 @@ def plot_train_and_test(arr1):
     #plt.xlim([0, 510])
     plt.xlabel("traing episodes [x10] ")
     plt.ylabel("averaged testing perfomance over 10 episodes")
-    plt.plot(step, perf1, 'bs-', label = 'model_200 -> training 101 and testing 101')
+    plt.plot(step, perf1, 'bs-', label = 'model_200 -> retraining 101 and testing 101 (train 10 ep/one timestep)')
     plt.axvline(x = 10, color = 'r', label = 'novelty applied')
     plt.legend()
     plt.savefig("training_10episodes_testing_10points_curve_101.png")
