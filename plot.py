@@ -55,6 +55,26 @@ def plot_train(arr1):
     plt.savefig("training_curve_101.png")
     plt.close()
 
+
+def plot_train_and_test(arr1):
+    cnt = 11
+    step = [i+1 for i in range(10)]
+    perf1=[1.0 for i in range(10)]
+    for p1 in arr1:
+            #print(p1)
+            step.append(cnt)
+            perf1.append(p1)
+            cnt += 1
+    #plt.xlim([0, 510])
+    plt.xlabel("traing episodes [x10] ")
+    plt.ylabel("averaged testing perfomance over 10 episodes")
+    plt.plot(step, perf1, 'bs-', label = 'model_200 -> training 101 and testing 101')
+    plt.axvline(x = 10, color = 'r', label = 'novelty applied')
+    plt.legend()
+    plt.savefig("training_10episodes_testing_10points_curve_101.png")
+    plt.close()
+
+
 def text_to_array(file):
     perf=[1.0 for i in range(10)] # novelty applied at timestep=10
     with open(file) as f:
@@ -74,3 +94,6 @@ plot_test(arr)
 text_to_array("training_reward.txt")
 arr_retrain=np.load("retrain_101.npy")
 plot_train(arr_retrain)
+arr_soo=np.load("test_reward_101_while_training_for_100ts.npy")
+plot_train_and_test(arr_soo)
+
