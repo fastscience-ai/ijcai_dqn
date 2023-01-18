@@ -14,10 +14,11 @@ def plot(arr1, arr2):
             cnt += 1
     plt.xlabel("testing episodes")
     plt.ylabel("perfomance")
-    plt.plot(step, perf1, 'bs-', label = '8.h5f(0.84)')
-    plt.plot(step, perf2, 'rs-', label = 'fine-tuned in 200(0.933)')
+    plt.plot(step, perf1, 'b-', label = '8.h5f(0.84)')
+    plt.plot(step, perf2, 'r-', label = 'fine-tuned in 200(0.933)')
     plt.legend()
     plt.savefig("testing_curve_200.png")
+    plt.close()
 
 def plot_test(arr1):
     cnt = 1
@@ -34,7 +35,7 @@ def plot_test(arr1):
     plt.axvline(x = 10, color = 'r', label = 'novelty applied')
     plt.legend()
     plt.savefig("testing_curve_101.png")
-
+    plt.close()
 
 def plot_train(arr1):
     cnt = 1
@@ -52,7 +53,7 @@ def plot_train(arr1):
     plt.axvline(x = 10, color = 'r', label = 'novelty applied')
     plt.legend()
     plt.savefig("training_curve_101.png")
-
+    plt.close()
 
 def text_to_array(file):
     perf=[1.0 for i in range(10)] # novelty applied at timestep=10
