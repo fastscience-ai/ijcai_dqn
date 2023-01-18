@@ -12,7 +12,7 @@ def plot(arr1, arr2):
             perf1.append(p1)
             perf2.append(p2)
             cnt += 1
-    plt.xlabel("testing steps")
+    plt.xlabel("testing episodes")
     plt.ylabel("perfomance")
     plt.plot(step, perf1, 'bs-', label = '8.h5f(0.84)')
     plt.plot(step, perf2, 'rs-', label = 'fine-tuned in 200(0.933)')
@@ -28,7 +28,7 @@ def plot_test(arr1):
             step.append(cnt)
             perf1.append(p1)
             cnt += 1
-    plt.xlabel("testing steps")
+    plt.xlabel("testing episodes")
     plt.ylabel("perfomance")
     plt.plot(step, perf1, 'b-', label = 'model_200 -> testing 101(0.20192)')
     plt.axvline(x = 10, color = 'r', label = 'novelty applied')
@@ -46,7 +46,7 @@ def plot_train(arr1):
             perf1.append(p1)
             cnt += 1
     #plt.xlim([0, 510])
-    plt.xlabel("training steps")
+    plt.xlabel("training episodes")
     plt.ylabel("perfomance")
     plt.plot(step, perf1, 'b-', label = 'model_200 -> training 101')
     plt.axvline(x = 10, color = 'r', label = 'novelty applied')
